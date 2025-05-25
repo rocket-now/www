@@ -1,15 +1,913 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>RocketNow</title>
+    <title>ロケットナウ - 飲食店オーナー様向け加盟店募集</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #ff4b33;
+            --secondary-color: #1a4c96;
+            --text-color: #333;
+            --light-gray: #f5f5f5;
+            --dark-gray: #666;
+            --white: #fff;
+            --header-bg: #b05b30;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+        
+        header {
+            background-color: var(--header-bg);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            max-width: 180px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .nav-link {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .nav-link:hover {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        
+        .nav-link.button {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+        }
+        
+        .nav-link.button:hover {
+            background-color: #e63e29;
+        }
+        
+        .hero {
+            background: url('https://www.rocketnow.co.jp/wp-content/uploads/2025/03/1-14.png') center/cover;
+            color: var(--white);
+            padding: 8rem 0 4rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .cta-button:hover {
+            background-color: #e63e29;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 75, 51, 0.3);
+        }
+        
+        section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--dark-gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .features {
+            background-color: var(--light-gray);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .benefit-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .benefit-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .fee-comparison {
+            background-color: var(--light-gray);
+            border-radius: 10px;
+            padding: 2rem;
+        }
+        
+        .fee-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+        }
+        
+        .fee-table th, .fee-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .fee-table th {
+            background-color: var(--secondary-color);
+            color: var(--white);
+        }
+        
+        .highlight {
+            background-color: rgba(255, 75, 51, 0.1);
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+        }
+        
+        .service-area {
+            background-color: var(--light-gray);
+        }
+        
+        .area-map {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .area-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .area-item {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 500;
+        }
+        
+        .steps-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .steps-flow {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            width: 100%;
+            justify-content: space-between;
+        }
+        
+        .step-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            width: 45%;
+            text-align: center;
+        }
+        
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .step-arrow {
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+        
+        .step-number {
+            background-color: var(--primary-color);
+            color: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1rem;
+        }
+        
+        .step-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .faq {
+            background-color: var(--light-gray);
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            background-color: var(--white);
+            padding: 1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+        }
+        
+        .faq-answer {
+            background-color: var(--white);
+            padding: 0 1rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .faq-answer.active {
+            padding: 1rem;
+            max-height: 500px;
+        }
+        
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-question.active .faq-icon {
+            transform: rotate(180deg);
+        }
+        
+        .join-cta {
+            text-align: center;
+            background: url('https://www.rocketnow.co.jp/wp-content/uploads/2025/03/4-4.png') center/cover;
+            color: var(--white);
+            position: relative;
+            padding: 6rem 0;
+        }
+        
+        .join-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+        
+        .join-cta-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .qr-code {
+            max-width: 200px;
+            margin: 2rem auto;
+            background-color: white;
+            padding: 1rem;
+            border-radius: 10px;
+        }
+        
+        .partner-section {
+            text-align: center;
+        }
+        
+        .partner-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .partner-logo {
+            max-width: 100%;
+            height: auto;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        
+        .partner-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+        
+        footer {
+            background-color: #333;
+            color: var(--white);
+            padding: 2rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .footer-note {
+            font-size: 0.8rem;
+            color: #999;
+            text-align: center;
+            margin-top: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero {
+                padding: 7rem 0 3rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .steps-flow {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            .step-card {
+                width: 100%;
+            }
+            
+            .step-arrow {
+                transform: rotate(90deg);
+                margin: 1rem 0;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
-
 <body>
-<h1>Hello</h1>
-</body>
+    <!-- 1. ヘッダー -->
+    <header>
+        <div class="container header-container">
+            <a href="https://rocketnow.org" target="_blank" class="logo-container">
+                <img src="https://www.rocketnow.co.jp/wp-content/uploads/2024/12/1Line-Logo-180x31.png" alt="ロケットナウ Logo" class="logo">
+            </a>
+            <nav class="nav-links">
+                <a href="https://www.rocketnow.co.jp/service/" target="_blank" class="nav-link">サービス紹介</a>
+                <a href="https://store.rocketnow.co.jp" target="_blank" class="nav-link">店舗会員登録</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdjPEPPvXO0cpfPd74sAtbx0cje1r-hqSFQk77PYZazgYZ6fw/viewform" target="_blank" class="nav-link">出店申請</a>
+                <a href="mailto:contact@rocketnow.org" class="nav-link">お問い合わせ</a>
+            </nav>
+        </div>
+    </header>
 
+    <!-- 2. トップメッセージ -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>飲食店オーナー様へ<br>新たな売上チャンスを提供します</h1>
+            <p>初期費用なし 業界最安水準の手数料<br>ロケットナウに加盟して売上アップを実現しませんか？</p>
+            <a href="#join-process" class="cta-button">今すぐ加盟する</a>
+        </div>
+    </section>
+
+    <!-- 3. ロケットナウのサービス -->
+    <section class="service">
+        <div class="container">
+            <div class="section-title">
+                <h2>ロケットナウのサービス</h2>
+                <p>お客様がかつて経験したことのない配達スピードと高いサービス品質で新たなデリバリーサービスを提供します</p>
+            </div>
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/NRIFPqWj9J0" title="ロケットナウ紹介動画" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. ロケットナウの強み -->
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>ロケットナウの強み</h2>
+                <p>他社にはない強みで、お客様と店舗様の満足度を最大化します</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>送料無料</h3>
+                    <p>距離に関係なく何度でも送料無料。お客様も加盟店様も支払う必要ありません。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>迅速な配達</h3>
+                    <p>AI技術の活用で最速かつ最適な配送を実現。ご注文から届くまでの時間は平均25分以内。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-ticket-alt"></i>
+                    </div>
+                    <h3>初回注文限定クーポン</h3>
+                    <p>総額4,000円のクーポン提供中。ご注文が増えています。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. 店舗加盟のメリット -->
+    <section class="benefits">
+        <div class="container">
+            <div class="section-title">
+                <h2>店舗加盟のメリット</h2>
+                <p>ロケットナウに加盟することで得られる様々なメリット</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>売上アップ</h3>
+                    <p>デリバリー注文による売上増加。悪天候でも安定して売上を伸ばせます。</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-yen-sign"></i>
+                    </div>
+                    <h3>初期費用0円</h3>
+                    <p>受注に必要なタブレットを無料提供。加盟料、解約料、固定費も一切なし。</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                    </div>
+                    <h3>シンプルな料金設定</h3>
+                    <p>お支払いいただく費用は商品価格に対する手数料のみ。</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-percent"></i>
+                    </div>
+                    <h3>業界最安水準手数料</h3>
+                    <p>現在プロモーション中。合計手数料25%（出店から6ヶ月間）。</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-ad"></i>
+                    </div>
+                    <h3>広告効果</h3>
+                    <p>ロケットナウ掲載による広告効果で、新規顧客のアップを期待できます。</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3>メニュー撮影無料</h3>
+                    <p>プロカメラマンによるメニュー撮影が今なら無料（1回のみ）。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. 手数料比較 -->
+    <section class="fee-comparison-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>手数料比較</h2>
+                <p>他社と比較して、ロケットナウは業界最安水準です</p>
+            </div>
+            <div class="fee-comparison">
+                <table class="fee-table">
+                    <thead>
+                        <tr>
+                            <th>項目</th>
+                            <th>ロケットナウ</th>
+                            <th>U社</th>
+                            <th>D社</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>基本手数料</td>
+                            <td class="highlight">32% → 22%</td>
+                            <td>35%</td>
+                            <td>35%</td>
+                        </tr>
+                        <tr>
+                            <td>カード決済手数料</td>
+                            <td>3%</td>
+                            <td>0%</td>
+                            <td>3%</td>
+                        </tr>
+                        <tr>
+                            <td>初期費用（端末代）</td>
+                            <td class="highlight">¥0</td>
+                            <td>¥22,500</td>
+                            <td>¥1,200 (月額)</td>
+                        </tr>
+                        <tr>
+                            <td>合計手数料</td>
+                            <td class="highlight">25%</td>
+                            <td>35%</td>
+                            <td>38%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. サービスエリア急速拡大中 -->
+    <section class="service-area">
+        <div class="container">
+            <div class="section-title">
+                <h2>サービスエリア急速拡大中</h2>
+                <p>2025年6月までにサービスエリアを東京23区全域に拡大予定</p>
+            </div>
+            <div class="area-map">
+                <img src="https://www.rocketnow.co.jp/wp-content/uploads/2025/02/Screenshot-2025-02-21-at-3.58.41-PM.png" alt="サービスエリアマップ" style="max-width: 100%; border-radius: 10px;">
+                <div class="area-list">
+                    <div class="area-item">港区</div>
+                    <div class="area-item">新宿区</div>
+                    <div class="area-item">渋谷区</div>
+                    <div class="area-item">千代田区</div>
+                    <div class="area-item">中央区</div>
+                    <div class="area-item">目黒区</div>
+                    <div class="area-item">品川区</div>
+                    <div class="area-item">世田谷区</div>
+                    <div class="area-item">杉並区</div>
+                    <div class="area-item">中野区</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. 人気店がロケットナウに大集結！ -->
+    <section class="popular-stores">
+        <div class="container">
+            <div class="section-title">
+                <h2>人気店がロケットナウに大集結！</h2>
+                <p>話題のレストランや人気店が続々加盟しています</p>
+            </div>
+            <div class="partner-grid">
+                <img src="https://www.rocketnow.co.jp/wp-content/uploads/2025/03/1-32.png" alt="パートナー店舗" class="partner-logo">
+                <img src="https://www.rocketnow.co.jp/wp-content/uploads/2025/03/1-33.png" alt="パートナー店舗" class="partner-logo">
+                <img src="https://www.rocketnow.co.jp/wp-content/uploads/2025/03/1-34.png" alt="パートナー店舗" class="partner-logo">
+                <img src="https://www.rocketnow.co.jp/wp-content/uploads/2025/03/1-35.png" alt="パートナー店舗" class="partner-logo">
+                <img src="https://www.rocketnow.co.jp/wp-content/uploads/2025/03/1-36.png" alt="パートナー店舗" class="partner-logo">
+                <img src="https://www.rocketnow.co.jp/wp-content/uploads/2025/03/1-37.png" alt="パートナー店舗" class="partner-logo">
+                <img src="https://www.rocketnow.co.jp/wp-content/uploads/2025/03/1-38.png" alt="パートナー店舗" class="partner-logo">
+                <img src="https://www.rocketnow.co.jp/wp-content/uploads/2025/03/1-39.png" alt="パートナー店舗" class="partner-logo">
+                <img src="https://www.rocketnow.co.jp/wp-content/uploads/2025/03/1-40.png" alt="パートナー店舗" class="partner-logo">
+                <img src="https://www.rocketnow.co.jp/wp-content/uploads/2025/03/1-41.png" alt="パートナー店舗" class="partner-logo">
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. 店舗加盟プロセス -->
+    <section class="how-to-join" id="join-process">
+        <div class="container">
+            <div class="section-title">
+                <h2>店舗加盟プロセス</h2>
+                <p>ロケットナウへの加盟は簡単2ステップで完了します</p>
+            </div>
+            <div class="steps-container">
+                <div class="steps-flow">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h3>店舗会員登録</h3>
+                        <p>ロケットナウ マネージャーにて店舗の基本情報を登録します。</p>
+                        <a href="https://store.rocketnow.co.jp" target="_blank" class="cta-button">会員登録する</a>
+                    </div>
+                    <div class="step-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h3>出店申請</h3>
+                        <p>出店のための追加情報を提出して申請を完了します。</p>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdjPEPPvXO0cpfPd74sAtbx0cje1r-hqSFQk77PYZazgYZ6fw/viewform" target="_blank" class="cta-button">出店申請する</a>
+                    </div>
+                </div>
+                <p>※ 登録から5日以内に店舗オープン。他社では2週間以上かかるのに比べ、ロケットナウはオープンまでのスピードが早く、店舗様から非常に高い満足度をいただいています。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. 今すぐ、売上アップへ -->
+    <section class="join-cta">
+        <div class="container join-cta-content">
+            <h2>今すぐ、売上アップへ</h2>
+            <p>ロケットナウで新たな顧客を獲得し、安定した売上の成長を実現しましょう</p>
+            <div class="qr-code">
+                <img src="https://www.rocketnow.co.jp/wp-content/uploads/2025/01/QR.png" alt="注文アプリQRコード">
+            </div>
+            <p>スマホで簡単に注文できるアプリをお客様にご案内ください</p>
+            <a href="#join-process" class="cta-button">今すぐ加盟する</a>
+        </div>
+    </section>
+
+    <!-- 11. よくある質問 -->
+    <section class="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>よくある質問</h2>
+                <p>ロケットナウに関するよくある質問をまとめました</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>サービスの営業時間は何時ですか？</span>
+                        <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>ロケットナウの運営可能時間は午前8時〜翌日3時です。この時間内でお店の営業時間に合わせて設定することができます。カスタマーセンターは08:00-04:00まで対応しています。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>受注タブレットはどのように操作しますか？</span>
+                        <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>タブレットの操作は非常にシンプルです。ログイン後、新規注文が入ると通知が届き、注文内容の確認、調理時間の入力、準備完了の通知などの操作が簡単に行えます。また、メニューの売り切れ設定やレビュー確認などもセルフサービス画面から行うことができます。操作方法については、店舗を担当する営業スタッフが丁寧にご説明いたします。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>複数の店舗を経営している場合の登録方法を知りたい</span>
+                        <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>住所が同じであっても複数の店舗をロケットナウマネージャーに登録することができます。既存のログイン情報を使って、ロケットナウマネージャーにログイン後、「店舗追加」ボタンをクリックして新しい店舗を追加することができます。追加手続きは新規登録と同様の流れで進めることができます。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>商品の価格やメニューは後から変更できますか？</span>
+                        <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>はい、価格やメニューは後から変更可能です。売り切れや一時的に提供できない商品は、タブレットから簡単に非表示設定ができます。メニューの追加や価格変更などの本格的な変更については、メニュー修正依頼用のメールアドレス（rn-menu@rocketnow.co.jp）にご連絡いただければ対応いたします。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>サービス開始までどのくらいかかりますか？</span>
+                        <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>ロケットナウマネージャーの会員登録およびアカウント作成は代表者の同意後、5分以内に行えます。その後、タブレットの設置および最終的な本社からの案内電話までは5日以内に完了いたします。他社では2週間以上かかるのに比べ、ロケットナウはオープンまでのスピードが早く、店舗様から非常に高い満足度をいただいています。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>店舗の精算はどのように行われるのですか？</span>
+                        <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>月次精算が基本です。前月1か月間の売上が毎月10銀行営業日に支給されます。お問い合わせがあった場合には、週次精算も選択できます。週精算の場合、月曜日〜日曜日の売上が翌週火曜日に支給されます。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>写真撮影に費用はかかりますか？</span>
+                        <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>プロカメラマンによる撮影サービスを1回無料でご提供しています。メニューの魅力を最大限に引き出す高品質な写真をご用意いたします。撮影スケジュールは依頼日基準+5営業日で設定され、撮影日時と撮影メニュー数を事前にご相談させていただきます。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>タブレットは無料で提供されますか？</span>
+                        <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>はい、現在プロモーション期間中のため、タブレットを無料でレンタルしております。オペレーションにかかる費用は一切かかりません。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>他のデリバリープラットフォームと違う点は何ですか？</span>
+                        <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>ロケットナウは以下の点で他社と差別化しています：1) 送料無料のため新規顧客を創出する効果があります。2) 迅速なカスタマーサポート体制で、お問い合わせや問題に電話一本で対応できます。3) 天候が悪化した場合でも露出量が一定しており、デリバリーの売上を安定して確保できます。4) 業界最安水準の手数料と初期費用・固定費が一切無料という明確な料金体系です。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 12. フッター -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>お問い合わせ｜<a href="mailto:contact@rocketnow.org" style="color: white;">contact@rocketnow.org</a></p>
+            </div>
+            <p class="footer-note">※本ページはロケットナウを運営するCP One Japan 合同会社から業務委託を受けたグルメアンバサダーが提供しています。</p>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const isActive = this.classList.contains('active');
+                    
+                    // Close all first
+                    faqQuestions.forEach(q => {
+                        q.classList.remove('active');
+                        q.nextElementSibling.classList.remove('active');
+                    });
+                    
+                    // Toggle current if wasn't active
+                    if (!isActive) {
+                        this.classList.add('active');
+                        answer.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
 </html>
