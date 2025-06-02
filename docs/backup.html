@@ -455,19 +455,6 @@
             background-color: var(--secondary-color);
             color: var(--white);
         }
-
-        .fee-table th img {
-            height: 24px;
-            width: auto;
-            display: block;
-            margin: 0;  /* 中央揃えを解除 */
-        }
-        
-        @media (max-width: 767px) {
-            .fee-table th img {
-                height: 15px;  /* スマホでは小さく */
-            }
-        }
         
         .highlight {
             background-color: rgba(255, 75, 51, 0.1);
@@ -873,11 +860,6 @@
             color: var(--primary-color);
             margin-bottom: 1rem;
         }
-
-        .fee-table .strikethrough {
-            text-decoration: line-through;
-            opacity: 0.7;
-        }
     </style>
 </head>
 <body>
@@ -1029,7 +1011,7 @@
                     <thead>
                         <tr>
                             <th>項目</th>
-                            <th><img src="assets/images/logo-orange.png" alt="ロケットナウ"></th>
+                            <th>ロケットナウ</th>
                             <th>U社</th>
                             <th>D社</th>
                         </tr>
@@ -1037,7 +1019,7 @@
                     <tbody>
                         <tr>
                             <td>基本手数料</td>
-                            <td class="highlight"><span class="strikethrough">32%</span> → 22%</td>
+                            <td class="highlight">32% → 22%</td>
                             <td>35%</td>
                             <td>35%</td>
                         </tr>
