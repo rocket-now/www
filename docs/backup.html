@@ -193,9 +193,9 @@
 
         .hero .highlight {
             color: #FFD700;
-            font-size: clamp(2rem, 6vw, 3rem);
+            font-size: clamp(2rem, 6vw, 2.5rem);
             display: block;
-            margin-top: 1rem;
+            margin-top: 3rem;
         }
 
         .cta-button {
@@ -341,6 +341,7 @@
 
         .step-card p {
             color: var(--text-color);
+            padding: 0.3rem 0;
         }
 
         .faq {
@@ -455,9 +456,21 @@
             background-color: var(--secondary-color);
             color: var(--white);
         }
+
+        .fee-table th img {
+            height: 24px;
+            width: auto;
+            display: block;
+            margin: 0;  /* 中央揃えを解除 */
+        }
+        
+        @media (max-width: 767px) {
+            .fee-table th img {
+                height: 15px;  /* スマホでは小さく */
+            }
+        }
         
         .highlight {
-            background-color: rgba(255, 75, 51, 0.1);
             font-weight: 700;
             color: var(--primary-color);
         }
@@ -659,6 +672,8 @@
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease, padding 0.3s ease;
+            color: var(--primary-color);
+            font-weight: 500;
         }
         
         .faq-answer.active {
@@ -860,13 +875,116 @@
             color: var(--primary-color);
             margin-bottom: 1rem;
         }
+
+        .strikethrough {
+            text-decoration: line-through;
+            opacity: 0.7;
+        }
+
+        .closing-section {
+            position: relative;
+            background: url('assets/images/background_app.png') center/cover;
+            padding: 6rem 0;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .closing-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+
+        .closing-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .closing-title {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+        }
+
+        .closing-description {
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        .closing-qr {
+            max-width: 200px;
+            width: 100%;
+            margin: 0 auto 2rem;
+            display: block;
+            text-decoration: none;
+        }
+
+        .closing-qr img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .store-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .store-button {
+            width: 200px;
+            transition: transform 0.3s ease;
+        }
+
+        .store-button:hover {
+            transform: translateY(-3px);
+        }
+
+        .store-button img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        @media (max-width: 767px) {
+            .closing-qr {
+                max-width: 150px;
+            }
+            .store-button {
+                width: 120px;
+            }
+        }
+
+        .benefits .notes {
+            text-align: left;
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+            margin-top: 2rem;
+            max-width: 800px;
+            margin-left: 10px;
+            margin-right: auto;
+        }
+
+        .benefits .notes p {
+            margin: 0.3rem 0;
+        }
     </style>
 </head>
 <body>
     <!-- 1. ヘッダー -->
     <header>
         <div class="container header-container">
-            <a href="https://rocketnow.org" target="_blank" class="logo-container">
+            <a href="#top-message" class="logo-container">
                 <img width="180" height="31" 
                      src="./assets/images/logo.png" 
                      class="logo custom-logo" 
@@ -878,18 +996,17 @@
             <nav class="nav-links">
                 <a href="https://store.rocketnow.co.jp" target="_blank" class="nav-link">店舗会員登録</a>
                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSdjPEPPvXO0cpfPd74sAtbx0cje1r-hqSFQk77PYZazgYZ6fw/viewform" target="_blank" class="nav-link">出店申請</a>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfzT-Rl6VQUjCpY9Yb49D2lTIsQJ-P9ie0UO5DVVTJ1PoUtmw/viewform" target="_blank" class="nav-link">お問い合わせ</a>
+                <a href="#faq" class="nav-link">お問い合わせ</a>
             </nav>
         </div>
     </header>
 
     <!-- 2. トップメッセージ -->
-    <!-- トップメッセージ部分のHTML -->
-    <section class="hero">
+    <section class="hero" id="top-message">
         <div class="hero-content">
             <h1>
                 フードデリバリーで<br>
-                売上アップ<br>
+                売上アップ <br>
                 <span class="highlight">
                     初期費用0円<br>
                     業界最安値手数料
@@ -904,7 +1021,7 @@
         <div class="container">
             <div class="section-title">
                 <h2>ロケットナウのサービス</h2>
-                <p>お客様がかつて経験したことのない配達スピードと高いサービス品質で新たなデリバリーサービスを提供します</p>
+                <p>ロケットナウとは、加盟した飲食店オーナー様の声をお聞きください</p>
             </div>
             <div class="video-container">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/NRIFPqWj9J0" title="ロケットナウ紹介動画" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -917,7 +1034,7 @@
         <div class="container">
             <div class="section-title">
                 <h2>ロケットナウの強み</h2>
-                <p>他社にはない強みで、お客様と店舗様の満足度を最大化します</p>
+                <p>他を上回るサービスで、お客様と店舗様に高い満足を提供します</p>
             </div>
             <div class="features-grid">
                 <div class="feature-card">
@@ -925,21 +1042,21 @@
                         <i class="fas fa-truck"></i>
                     </div>
                     <h3>送料無料</h3>
-                    <p>距離に関係なく何度でも送料無料。お客様も加盟店様も支払う必要ありません。</p>
+                    <p>距離に関係なくいつでも送料無料<br/>ご注文者様も加盟店様もご負担なし</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-rocket"></i>
                     </div>
                     <h3>迅速な配達</h3>
-                    <p>AI技術の活用で最速かつ最適な配送を実現。ご注文から届くまでの時間は平均25分以内。</p>
+                    <p>AI技術で最速・最適な配送を実現<br/>ご注文から届くまで平均25分以内</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-ticket-alt"></i>
                     </div>
                     <h3>初回注文限定クーポン</h3>
-                    <p>総額4,000円のクーポン提供中。ご注文が増えています。</p>
+                    <p>総額4,000円のクーポン提供中<br/>ご注文が増えています</p>
                 </div>
             </div>
         </div>
@@ -958,43 +1075,47 @@
                         <i class="fas fa-chart-line"></i>
                     </div>
                     <h3>売上アップ</h3>
-                    <p>デリバリー注文による売上増加。悪天候でも安定して売上を伸ばせます。</p>
+                    <p>デリバリー注文で売上がアップ<br/>悪天候でも安定して売上を伸ばせます</p>
                 </div>
                 <div class="benefit-card">
                     <div class="benefit-icon">
                         <i class="fas fa-yen-sign"></i>
                     </div>
                     <h3>初期費用0円</h3>
-                    <p>受注に必要なタブレットを無料提供。加盟料、解約料、固定費も一切なし。</p>
+                    <p>受注に必要なタブレットを無料提供<br/>加盟料、解約料、固定費も一切なし</p>
                 </div>
                 <div class="benefit-card">
                     <div class="benefit-icon">
                         <i class="fas fa-file-invoice-dollar"></i>
                     </div>
                     <h3>シンプルな料金設定</h3>
-                    <p>お支払いいただく費用は商品価格に対する手数料のみ。</p>
+                    <p>お支払いいただく費用は<br/>商品価格に対する注文手数料のみ</p>
                 </div>
                 <div class="benefit-card">
                     <div class="benefit-icon">
                         <i class="fas fa-percent"></i>
                     </div>
-                    <h3>業界最安水準手数料</h3>
-                    <p>現在プロモーション中。合計手数料25%（出店から6ヶ月間）。</p>
+                    <h3>業界最安水準の手数料</h3>
+                    <p>現在プロモーション実施中<br/>手数料は業界最安の25%</p>
                 </div>
                 <div class="benefit-card">
                     <div class="benefit-icon">
                         <i class="fas fa-ad"></i>
                     </div>
                     <h3>広告効果</h3>
-                    <p>ロケットナウ掲載による広告効果で、新規顧客のアップを期待できます。</p>
+                    <p>ロケットナウ掲載による広告効果で、<br/>新規顧客を増やすチャンスです</p>
                 </div>
                 <div class="benefit-card">
                     <div class="benefit-icon">
                         <i class="fas fa-camera"></i>
                     </div>
                     <h3>メニュー撮影無料</h3>
-                    <p>プロカメラマンによるメニュー撮影が今なら無料（1回のみ）。</p>
+                    <p>プロカメラマンによるメニュー撮影が<br/>今なら無料で依頼できます</p>
                 </div>
+            </div>
+            <div class="notes">
+                <p>※ 手数料割引プロモーション期間は、出店から6ヶ月間です。</p>
+                <p>※ タブレット無料貸出期間は6ヶ月間です。それ以降の費用については現在未定となっています。</p>
             </div>
         </div>
     </section>
@@ -1011,7 +1132,7 @@
                     <thead>
                         <tr>
                             <th>項目</th>
-                            <th>ロケットナウ</th>
+                            <th><img src="assets/images/logo-orange.png" alt="ロケットナウ"></th>
                             <th>U社</th>
                             <th>D社</th>
                         </tr>
@@ -1019,7 +1140,7 @@
                     <tbody>
                         <tr>
                             <td>基本手数料</td>
-                            <td class="highlight">32% → 22%</td>
+                            <td class="highlight"><span class="strikethrough">32%</span> → 22%</td>
                             <td>35%</td>
                             <td>35%</td>
                         </tr>
@@ -1082,19 +1203,19 @@
         </div>
     </section>
 
-    <!-- 9. 店舗加盟プロセス -->
+    <!-- 9. 店舗加盟の流れ -->
     <section class="how-to-join" id="join-process">
         <div class="container">
             <div class="section-title">
-                <h2>店舗加盟プロセス</h2>
-                <p>ロケットナウへの加盟は簡単2ステップで完了します</p>
+                <h2>店舗加盟の流れ</h2>
+                <p>ロケットナウの加盟申請は、簡単2ステップで完了します</p>
             </div>
             <div class="steps-container">
                 <div class="steps-flow">
                     <div class="step-card">
                         <div class="step-number">1</div>
                         <h3>店舗会員登録</h3>
-                        <p>ロケットナウ マネージャーにて店舗の基本情報を登録します。</p>
+                        <p>rocketnow Manager  で<br/>店舗情報を登録します</p>
                         <a href="https://store.rocketnow.co.jp" target="_blank" class="cta-button">会員登録する</a>
                     </div>
                     <div class="step-arrow">
@@ -1103,102 +1224,151 @@
                     <div class="step-card">
                         <div class="step-number">2</div>
                         <h3>出店申請</h3>
-                        <p>出店のための追加情報を提出して申請を完了します。</p>
+                        <p>出店のための追加情報を<br/>提出します</p>
                         <a href="https://docs.google.com/forms/d/e/1FAIpQLSdjPEPPvXO0cpfPd74sAtbx0cje1r-hqSFQk77PYZazgYZ6fw/viewform" target="_blank" class="cta-button">出店申請する</a>
                     </div>
                 </div>
-                <p>※ 登録から5日以内に店舗オープン。他社では2週間以上かかるのに比べ、ロケットナウはオープンまでのスピードが早く、店舗様から非常に高い満足度をいただいています。</p>
+                <p>上記の申請が完了後、担当者が確認してご連絡いたします</p>
             </div>
         </div>
     </section>
 
-    <!-- 11. よくある質問 -->
-    <section class="faq">
+    <!-- 10. クロージングセクション -->
+    <section class="closing-section">
+        <div class="closing-content">
+            <h2 class="closing-title">今すぐ、売上アップへ</h2>
+            <p class="closing-description">
+                ロケットナウに出店して、売上アップを実現しましょう<br>
+                料理の注文はアプリで簡単
+            </p>
+            <a href="https://share.rocketnow.co.jp/tRAKmOhc7Pb" target="_blank" class="closing-qr">
+                <img src="assets/images/QR.png" alt="QRコード">
+            </a>
+            <div class="store-buttons">
+                <a href="https://share.rocketnow.co.jp/tRAKmOhc7Pb" target="_blank" class="store-button">
+                    <img src="assets/images/icon-google.png" alt="Google Play">
+                </a>
+                <a href="https://share.rocketnow.co.jp/tRAKmOhc7Pb" target="_blank" class="store-button">
+                    <img src="assets/images/icon-apple.png" alt="App Store">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. よくあるご質問 -->
+    <section class="faq" id="faq">
         <div class="container">
             <div class="section-title">
-                <h2>よくある質問</h2>
-                <p>ロケットナウに関するよくある質問をまとめました</p>
+                <h2>よくあるご質問</h2>
+                <p>ロケットナウ出店に関するよくある質問をまとめました</p>
             </div>
             <div class="faq-container">
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>サービスの営業時間は何時ですか？</span>
+                        <span>ロケットナウの店舗会員登録はどこからできますか？</span>
                         <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
                     </div>
                     <div class="faq-answer">
-                        <p>ロケットナウの運営可能時間は午前8時〜翌日3時です。この時間内でお店の営業時間に合わせて設定することができます。カスタマーセンターは08:00-04:00まで対応しています。</p>
+                        <p>rocketnow Manager の <a href="https://store.rocketnow.co.jp/" target="_blank">WEBサイト</a> もしくは、アプリ（<a href="https://play.google.com/store/apps/details?id=com.cpone.merchant&pcampaignid" target="_blank">Google Play</a> / <a href="https://apps.apple.com/jp/app/rocket-now-manager-%E3%83%93%E3%82%B8%E3%83%8D%E3%82%B9%E3%83%9E%E3%83%8D%E3%83%BC%E3%82%B8%E3%83%A3%E3%83%BC/id6739188730" target="_blank">Apple Store</a>）から可能です。</p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>受注タブレットはどのように操作しますか？</span>
+                        <span>デリバリーサービスの営業時間は何時ですか？</span>
                         <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
                     </div>
                     <div class="faq-answer">
-                        <p>タブレットの操作は非常にシンプルです。ログイン後、新規注文が入ると通知が届き、注文内容の確認、調理時間の入力、準備完了の通知などの操作が簡単に行えます。また、メニューの売り切れ設定やレビュー確認などもセルフサービス画面から行うことができます。操作方法については、店舗を担当する営業スタッフが丁寧にご説明いたします。</p>
+                        <p>営業可能時間は午前8時〜翌日3時です。この時間内でお店の営業時間に合わせて設定することができます。</p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>タブレットは無料で提供されますか？</span>
+                        <span>売上はいつ支払われますか？</span>
                         <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
                     </div>
                     <div class="faq-answer">
-                        <p>はい、現在プロモーション期間中のため、タブレットを無料でレンタルしております。オペレーションにかかる費用は一切かかりません。</p>
+                        <p>月次精算になります。毎月1日〜末日の月間売上が、翌月の10日（銀行営業日）に指定銀行口座へ支給されます。</p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>複数の店舗を経営している場合の登録方法を知りたい</span>
+                        <span>誰が配達するのですか？</span>
                         <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
                     </div>
                     <div class="faq-answer">
-                        <p>住所が同じであっても複数の店舗をロケットナウマネージャーに登録することができます。既存のログイン情報を使って、ロケットナウマネージャーにログイン後、「店舗追加」ボタンをクリックして新しい店舗を追加することができます。追加手続きは新規登録と同様の流れで進めることができます。</p>
+                        <p>ロケットナウが委託した配達パートナーおよび配達業者が配達いたします。最短でお届けされるようマッチングされたドライバー（車、バイク、自転車）が注文品を受け取り、お客様にお届けいたします。</p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>商品の価格やメニューは後から変更できますか？</span>
+                        <span>登録からサービス開始までどのくらいかかりますか？</span>
                         <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
                     </div>
                     <div class="faq-answer">
-                        <p>はい、価格やメニューは後から変更可能です。売り切れや一時的に提供できない商品は、タブレットから簡単に非表示設定ができます。メニューの追加や価格変更などの本格的な変更については、メニュー修正依頼用のメールアドレス（rn-menu@rocketnow.co.jp）にご連絡いただければ対応いたします。</p>
+                        <p>およそ5日間で完了します。タブレットの設置訪問やメニュー情報の登録にお時間いただく場合がございます。</p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>サービス開始までどのくらいかかりますか？</span>
+                        <span>メニュー情報はどのように登録しますか？</span>
                         <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
                     </div>
                     <div class="faq-answer">
-                        <p>ロケットナウマネージャーの会員登録およびアカウント作成は代表者の同意後、5分以内に行えます。その後、タブレットの設置および最終的な本社からの案内電話までは5日以内に完了いたします。他社では2週間以上かかるのに比べ、ロケットナウはオープンまでのスピードが早く、店舗様から非常に高い満足度をいただいています。</p>
+                        <p>他のフードデリバリーサービスを運用されている場合、メニュー情報の提出は特に不要です。そうでない場合は、出店申請完了後にメニュー情報の提出をご案内いたします。フォームもしくはエクセルにメニュー情報（メニュー名、価格、カテゴリー、説明文、写真）を記載いただくことになります。</p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>店舗の精算はどのように行われるのですか？</span>
+                        <span>メニュー情報を追加、変更する場合はどうしたらいいですか？</span>
                         <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
                     </div>
                     <div class="faq-answer">
-                        <p>月次精算が基本です。前月1か月間の売上が毎月10銀行営業日に支給されます。お問い合わせがあった場合には、週次精算も選択できます。週精算の場合、月曜日〜日曜日の売上が翌週火曜日に支給されます。</p>
+                        <p>rocketnow Manager アプリからメニューの追加・変更が可能です。</p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>写真撮影に費用はかかりますか？</span>
+                        <span>お店が用意したタブレット端末でも受注できますか？</span>
                         <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
                     </div>
                     <div class="faq-answer">
-                        <p>プロカメラマンによる撮影サービスを1回無料でご提供しています。メニューの魅力を最大限に引き出す高品質な写真をご用意いたします。撮影スケジュールは依頼日基準+5営業日で設定され、撮影日時と撮影メニュー数を事前にご相談させていただきます。</p>
+                        <p>はい、roketnow Manager アプリを入れた端末で受注いただけます。</p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>他のデリバリープラットフォームと違う点は何ですか？</span>
+                        <span>タブレットの操作方法を知りたい</span>
                         <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
                     </div>
                     <div class="faq-answer">
-                        <p>ロケットナウは以下の点で他社と差別化しています：1) 送料無料のため新規顧客を創出する効果があります。2) 迅速なカスタマーサポート体制で、お問い合わせや問題に電話一本で対応できます。3) 天候が悪化した場合でも露出量が一定しており、デリバリーの売上を安定して確保できます。4) 業界最安水準の手数料と初期費用・固定費が一切無料という明確な料金体系です。</p>
+                        <p>こちらの<a href="https://www.youtube.com/watch?v=SvMR7KFVejg&t=110s" target="_blank">タブレットマニュアル動画</a>をご確認ください。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>手数料25%のプロモーションは自動で適用されますか?</span>
+                        <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>はい、会員登録時に手数料35%と表示されている場合でも自動的に25%が適用されます。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>通帳がない銀行口座でも登録できますか？</span>
+                        <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>はい、登録可能です。通帳コピー画像の代わりに、口座情報が表示された画面のスクリーンショットをご提出ください。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>複数の店舗を経営している場合の登録方法はどうなりますか？</span>
+                        <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>rocketnow Manager で1店舗目をご登録いただいた後、店舗追加ボタンから2店舗目以降をご登録いただけます。出店申請は店舗ごとにフォームをご提出ください。</p>
                     </div>
                 </div>
             </div>
@@ -1211,7 +1381,7 @@
             <div class="footer-content">
                 <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSfzT-Rl6VQUjCpY9Yb49D2lTIsQJ-P9ie0UO5DVVTJ1PoUtmw/viewform" style="color: white; text-decoration: underline;">お問い合わせ</a></p>
             </div>
-            <p class="footer-note">※本ページはロケットナウを運営するCP One Japan 合同会社より業務委託を受けたグルメアンバサダーが提供しています。</p>
+            <p class="footer-note">当サイトはロケットナウを運営するCP One Japan 合同会社より業務委託を受けたグルメアンバサダーが提供しています</p>
         </div>
     </footer>
 
