@@ -8,10 +8,21 @@ https://rocket-now.github.io/www/
 - Open Page  
 https://rocketnow.org
 
+- Google フォーム リダイレクト：店舗出店申請
+https://rocketnow.org/open
+
+- Google フォーム リダイレクト：お問い合わせ
+https://rocketnow.org/contact
+
+
 - 【ロケットナウ】店舗出店申請（Googleフォーム）  
 https://docs.google.com/forms/d/e/1FAIpQLSdjPEPPvXO0cpfPd74sAtbx0cje1r-hqSFQk77PYZazgYZ6fw/viewform
 
 - 【ロケットナウ】お問い合わせ（Googleフォーム）  
+https://forms.gle/JRsKXruSPNiDsDUP9
+https://forms.gle/WGdh7DT5CikuDAFc6
+
+削除
 https://docs.google.com/forms/d/e/1FAIpQLSfzT-Rl6VQUjCpY9Yb49D2lTIsQJ-P9ie0UO5DVVTJ1PoUtmw/viewform
 
 
@@ -24,6 +35,9 @@ https://www.rocketnow.co.jp/
 
 - サービス紹介  
 https://www.rocketnow.co.jp/service/
+
+- ニュース  
+https://www.rocketnow.co.jp/rocket-now-news/
 
 - サービスエリア  
 https://www.rocketnow.co.jp/region/
