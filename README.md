@@ -16,14 +16,10 @@ https://rocketnow.org/contact
 
 
 - 【ロケットナウ】店舗出店申請（Googleフォーム）  
-https://docs.google.com/forms/d/e/1FAIpQLSdjPEPPvXO0cpfPd74sAtbx0cje1r-hqSFQk77PYZazgYZ6fw/viewform
+https://forms.gle/As9qCacthmFtftNo7
 
 - 【ロケットナウ】お問い合わせ（Googleフォーム）  
-https://forms.gle/JRsKXruSPNiDsDUP9
-https://forms.gle/WGdh7DT5CikuDAFc6
-
-削除
-https://docs.google.com/forms/d/e/1FAIpQLSfzT-Rl6VQUjCpY9Yb49D2lTIsQJ-P9ie0UO5DVVTJ1PoUtmw/viewform
+https://forms.gle/3Y8o3BCGaaztD2xK8
 
 
 ## ロケットナウ公式 リンク
