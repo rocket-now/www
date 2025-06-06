@@ -8,10 +8,10 @@ https://rocket-now.github.io/www/
 - Open Page  
 https://rocketnow.org
 
-- Google フォーム リダイレクト：店舗出店申請
+- Google フォーム リダイレクト：店舗出店申請  
 https://rocketnow.org/open
 
-- Google フォーム リダイレクト：お問い合わせ
+- Google フォーム リダイレクト：お問い合わせ  
 https://rocketnow.org/contact
 
 
