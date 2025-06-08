@@ -6,20 +6,23 @@ Public web site
 https://rocket-now.github.io/www/
 
 - Open Page  
-https://rocketnow.org
+https://rocketnow.org/
 
 - Google フォーム リダイレクト：店舗出店申請  
-https://rocketnow.org/open
+https://rocketnow.org/open/
 
 - Google フォーム リダイレクト：お問い合わせ  
-https://rocketnow.org/contact
+https://rocketnow.org/contact/
 
 
 - 【ロケットナウ】店舗出店申請（Googleフォーム）  
+https://docs.google.com/forms/d/e/1FAIpQLSej9LyreuBXYF4zDp56jkzkgFxTRl2EzLa6uMG59N48q5EVrg/viewform?usp=dialog
 https://forms.gle/As9qCacthmFtftNo7
 
 - 【ロケットナウ】お問い合わせ（Googleフォーム）  
+https://docs.google.com/forms/d/e/1FAIpQLSfob5GUwkOHRyn9plF5gNVdQWAPtRH4ntXKfJcMgSkNuUF9pQ/viewform?usp=dialog
 https://forms.gle/3Y8o3BCGaaztD2xK8
+
 
 
 ## ロケットナウ公式 リンク
@@ -52,7 +55,7 @@ https://www.rocketnow.co.jp/rga/
 
 
 - Rocket Now Manager Web  
-https://store.rocketnow.co.jp
+https://store.rocketnow.co.jp/
 
 
 - Rocket Now Partner アプリ  

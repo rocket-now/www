@@ -248,9 +248,9 @@
         }
 
         /* スマホサイズでのセクションタイトル調整 */
-        @media (max-width: 768px) {
+        @media (max-width: 767px) {
             .section-title h2 {
-                font-size: 1.5rem;
+                font-size: 1.4rem;
                 white-space: nowrap;
                 padding: 0 1rem;
             }
@@ -377,6 +377,7 @@
             background-color: var(--white);
             border-radius: 10px;
             padding: 2rem;
+            min-width: 330px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
         }
@@ -462,6 +463,13 @@
             width: auto;
             display: block;
             margin: 0;  /* 中央揃えを解除 */
+        }
+
+        .benefit-card, .step-card {
+            max-width: 340px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
         }
         
         @media (max-width: 767px) {
@@ -996,7 +1004,7 @@
             <nav class="nav-links">
                 <a href="https://store.rocketnow.co.jp" target="_blank" class="nav-link">店舗会員登録</a>
                 <a href="/open/" target="_blank" class="nav-link">出店申請</a>
-                <a href="#faq" class="nav-link">お問い合わせ</a>
+                <a href="/contact/" class="nav-link">お問い合わせ</a>
             </nav>
         </div>
     </header>
@@ -1096,7 +1104,7 @@
                         <i class="fas fa-percent"></i>
                     </div>
                     <h3>業界最安水準の手数料</h3>
-                    <p>現在プロモーション実施中<br/>手数料は業界最安の25%</p>
+                    <p>現在プロモーション実施中<br/>手数料は業界最安の22%</p>
                 </div>
                 <div class="benefit-card">
                     <div class="benefit-icon">
@@ -1114,7 +1122,7 @@
                 </div>
             </div>
             <div class="notes">
-                <p>※ 手数料割引プロモーション期間は、出店から6ヶ月間です。</p>
+                <p>※ 手数料割引プロモーション期間は、出店から3ヶ月間です。</p>
                 <p>※ タブレット無料貸出期間は6ヶ月間です。それ以降の費用については現在未定となっています。</p>
             </div>
         </div>
@@ -1140,7 +1148,7 @@
                     <tbody>
                         <tr>
                             <td>基本手数料</td>
-                            <td class="highlight"><span class="strikethrough">32%</span> → 22%</td>
+                            <td class="highlight"><span class="strikethrough">32%</span> → 19%</td>
                             <td>35%</td>
                             <td>35%</td>
                         </tr>
@@ -1158,7 +1166,7 @@
                         </tr>
                         <tr>
                             <td>合計手数料</td>
-                            <td class="highlight">25%</td>
+                            <td class="highlight">22%</td>
                             <td>35%</td>
                             <td>38%</td>
                         </tr>
@@ -1236,7 +1244,9 @@
     <!-- 10. クロージングセクション -->
     <section class="closing-section">
         <div class="closing-content">
-            <h2 class="closing-title">今すぐ、売上アップへ</h2>
+            <div class="section-title">
+                <h2 class="closing-title">今すぐ、売上アップへ</h2>
+            </div>
             <p class="closing-description">
                 ロケットナウに出店して、売上アップを実現しましょう<br>
                 料理の注文はアプリで簡単
@@ -1328,11 +1338,11 @@
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>お店が用意したタブレット端末でも受注できますか？</span>
+                        <span>お店が用意したタブレット端末でも運営できますか？</span>
                         <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
                     </div>
                     <div class="faq-answer">
-                        <p>はい、roketnow Manager アプリを入れた端末で受注いただけます。</p>
+                        <p>はい、roketnow Manager アプリを入れていただいた端末で運営いただけます。</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -1346,11 +1356,11 @@
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>手数料25%のプロモーションは自動で適用されますか?</span>
+                        <span>手数料22%のプロモーションは自動で適用されますか?</span>
                         <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
                     </div>
                     <div class="faq-answer">
-                        <p>はい、会員登録時に手数料35%と表示されている場合でも自動的に25%が適用されます。</p>
+                        <p>はい、会員登録時に手数料35%と表示されている場合でも自動的に22%が適用されます。</p>
                     </div>
                 </div>
                 <div class="faq-item">
