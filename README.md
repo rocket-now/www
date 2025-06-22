@@ -20,8 +20,9 @@ https://docs.google.com/forms/d/e/1FAIpQLSej9LyreuBXYF4zDp56jkzkgFxTRl2EzLa6uMG5
 https://forms.gle/As9qCacthmFtftNo7
 
 - 【ロケットナウ】お問い合わせ（Googleフォーム）  
-https://docs.google.com/forms/d/e/1FAIpQLSfob5GUwkOHRyn9plF5gNVdQWAPtRH4ntXKfJcMgSkNuUF9pQ/viewform?usp=dialog
-https://forms.gle/3Y8o3BCGaaztD2xK8
+https://docs.google.com/forms/d/e/1FAIpQLSetdmaqt9g1_LcqqRvKh9LAie04bEfbwozeO9DJDZmhh3Mq9g/viewform?usp=dialog
+
+
 
 
 
@@ -73,3 +74,8 @@ https://www.youtube.com/@rocket-now/videos
 
 - ロケットナウ Youtube Rocket「Rocket Nowのご紹介とオーナー様へのインタビュー」  
 https://www.youtube.com/watch?v=NRIFPqWj9J0
+
+
+## カラーコード
+--primary-color: #ff6a19;
+--secondary-color: #1a4c96;
